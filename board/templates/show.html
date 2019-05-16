@@ -1,0 +1,11 @@
+<h1><a href="{% url 'post' %}"><글 작성하러 가기></a></h1>
+{%for board in boards.all%}
+    <div class="container">
+        <a href="{% url 'detail' board.id %}">
+            <h3>제목: {{board.title}}</h3>
+        </a>
+        <p>내용: {{board.body}}</p>
+        <small class="text-muted">{{board.pub_date}}</small>
+        <p>{{ board.update_date|timesince }} ago</p>
+    </div>
+{%endfor%}
